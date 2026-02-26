@@ -1,0 +1,32 @@
+query CartInput {
+  cart {
+    lines {
+      id
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          product {
+            id
+          }
+        }
+      }
+    }
+    buyerIdentity {
+      customer {
+        metafield(namespace: "customer_discount", key: "group") {
+          value
+        }
+      }
+    }
+  }
+
+  discount {
+    discountClasses
+  }
+
+  shop {
+    metafield(namespace: "custom", key: "settings") {
+      jsonValue
+    }
+  }
+}
