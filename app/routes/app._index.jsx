@@ -27,6 +27,7 @@ export const loader = async ({ request }) => {
     }
   `);
 
+
   const json = await response.json();
 
   const products = json.data.products.nodes.map((product) => ({
